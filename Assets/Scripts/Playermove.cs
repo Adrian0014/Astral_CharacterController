@@ -25,6 +25,8 @@ public class Playermove : MonoBehaviour
   
     public Transform bulletSpwan;
 
+    public GameObject[] cameras;
+
     void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -155,6 +157,19 @@ public class Playermove : MonoBehaviour
         playerVelocity.y += gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
+
+
+
+        if(Input.GetButton("Fire2"))
+        {
+            cameras[0].SetActive(false);
+            cameras[1].SetActive(true);
+        }
+        else
+        {
+            cameras[0].SetActive(true);
+            cameras[1].SetActive(false);
+        }
 
     }
 
